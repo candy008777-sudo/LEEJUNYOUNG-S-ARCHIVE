@@ -157,13 +157,27 @@ body {
   outline: 0;
 }
 
+/* Extend the artwork's background without cropping the cover. */
+@media (min-width: 768px) {
+  .archive-right {
+    align-self: center;
+    min-height: 0;
+    height: 100%;
+    background-size: contain;
+  }
+}
+
 .archive-right[aria-disabled="true"] {
   cursor: default;
 }
 
-.archive-page[data-theme="makeup"] .archive-right,
 .archive-page[data-theme="makeup-thumbnails"] .archive-right {
   background-size: contain;
+}
+
+.archive-page[data-theme="makeup"] .archive-right,
+.archive-page[data-theme="sheer"] .archive-right {
+  background-size: cover;
 }
 
 .theme-next {
@@ -201,8 +215,8 @@ body {
     height: 100dvh;
     min-height: 0;
     grid-template-columns: minmax(0, 1fr);
-    grid-template-rows: auto minmax(0, 1fr) auto;
-    padding: var(--mobile-edge) 0;
+    grid-template-rows: auto auto minmax(0, 1fr);
+    padding: min(var(--mobile-edge), 3dvh) 0;
     background: var(--archive-background);
     color: var(--archive-color);
     overflow: visible;
@@ -222,11 +236,15 @@ body {
   .archive-right {
     grid-column: 1;
     grid-row: 2;
-    height: 100%;
+    width: min(100%, 60dvh);
+    justify-self: center;
+    height: auto;
     min-height: 0;
-    aspect-ratio: auto;
-    background-size: contain;
+    aspect-ratio: 1.515 / 1;
+    background-size: cover;
   }
+
+  .archive-page[data-theme] .archive-right { background-size: cover; }
 
   .theme-next {
     position: relative;
@@ -236,7 +254,7 @@ body {
     justify-self: end;
     right: auto;
     bottom: auto;
-    margin: 0 6vw 4vw 0;
+    margin: 0 max(6vw, calc((100vw - 60dvh) / 2 + 16px)) 16px 0;
     min-width: 44px;
     min-height: 44px;
     font-size: 7vw;
@@ -823,7 +841,7 @@ body {
   aspect-ratio: 0.72;
   margin: 0;
   overflow: hidden;
-  border-radius: clamp(7px, 0.6vw, 14px);
+  border-radius: 3% / 2.16%;
   background: #e8e8e8;
   transition: transform 0.6s cubic-bezier(.2,.8,.2,1);
 }
@@ -885,7 +903,13 @@ body {
   }
 
   .glow-card {
-    width: min(43vw, 260px);
+    width: 40%;
+    max-width: 260px;
+  }
+
+  .glow-card--far-left,
+  .glow-card--far-right {
+    display: none;
   }
 
   .glow-card--far-left {

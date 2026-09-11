@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
     "makeup-thumbnails": {
       background: "#F9F9F9",
       color: "#050505",
-      visualBackground: "#F9F9F9",
+      visualBackground: "#000000",
       image: "images/makeup-thumbnails/makeup-cover.webp?v=20260904-1",
       href: "makeup-thumbnails.html",
       label: "GLOW UP 메이크업 썸네일 프로젝트 보기"
