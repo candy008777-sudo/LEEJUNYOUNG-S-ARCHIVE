@@ -37,7 +37,8 @@ body {
   width: 100%;
   height: 100vh;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  grid-template-rows: minmax(0, 1fr);
   overflow: hidden;
 }
 
@@ -162,7 +163,7 @@ body {
 
 .archive-page[data-theme="makeup"] .archive-right,
 .archive-page[data-theme="makeup-thumbnails"] .archive-right {
-  background-size: cover;
+  background-size: contain;
 }
 
 .theme-next {
@@ -196,11 +197,11 @@ body {
   }
 
   .archive {
-    height: auto;
-    min-height: 100vh;
-    min-height: 100dvh;
+    height: 100vh;
+    height: 100dvh;
+    min-height: 0;
     grid-template-columns: minmax(0, 1fr);
-    grid-template-rows: auto auto minmax(min-content, 1fr);
+    grid-template-rows: auto minmax(0, 1fr) auto;
     padding: var(--mobile-edge) 0;
     background: var(--archive-background);
     color: var(--archive-color);
@@ -214,16 +215,17 @@ body {
   .archive-info {
     grid-column: 1;
     grid-row: 1;
-    margin-bottom: 11.5vw;
+    margin-bottom: min(5vw, 3dvh);
     padding-inline: var(--mobile-gutter);
   }
 
   .archive-right {
     grid-column: 1;
     grid-row: 2;
-    height: auto;
-    aspect-ratio: 1.515 / 1;
-    background-size: cover;
+    height: 100%;
+    min-height: 0;
+    aspect-ratio: auto;
+    background-size: contain;
   }
 
   .theme-next {
@@ -243,7 +245,7 @@ body {
 
   .archive-title,
   .category-list a {
-    font-size: 5.75vw;
+    font-size: min(5.75vw, 3.5dvh);
     line-height: 1.16;
     letter-spacing: -0.025em;
   }
@@ -259,14 +261,14 @@ body {
   .main-menu {
     grid-column: 1;
     grid-row: 3;
-    margin-top: 19vw;
+    margin-top: min(5vw, 3dvh);
     align-self: end;
     padding-inline: var(--mobile-gutter);
     gap: 1vw;
   }
 
   .main-menu a {
-    font-size: 8.5vw;
+    font-size: min(8.5vw, 5dvh);
     line-height: 1.08;
     letter-spacing: -0.025em;
   }
