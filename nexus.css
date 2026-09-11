@@ -1,0 +1,12 @@
+.nexus-media-list { display: flex; flex-direction: column; gap: 60px; }
+.nexus-values { position: relative; }
+.nexus-colors { position: relative; }
+.nexus-colors > img { display: block; width: 100%; height: auto; }
+.nexus-color-targets { position: absolute; inset: 0 50% 0 0; display: grid; grid-template-rows: repeat(3, 1fr); }
+.nexus-color-targets button { width: 100%; border: 0; padding: 0; background: transparent; cursor: pointer; border-radius: 0; }
+.nexus-color-targets button:focus-visible { outline: 2px solid #888; outline-offset: -4px; }
+.nexus-values > img { display: block; width: 100%; height: auto; }
+/* Rows measured against the supplied 2784 × 3164 artwork. */
+.nexus-value-targets { position: absolute; left: 0; right: 0; top: 19.92%; height: 74.28%; display: grid; grid-template-rows: repeat(5, 1fr); }
+.nexus-value-targets button { display: block; width: 100%; border: 0; background: transparent; cursor: pointer; border-radius: 0; }
+.nexus-value-targets button:focus-visible { outline: 2px solid #fff; outline-offset: -4px; }
